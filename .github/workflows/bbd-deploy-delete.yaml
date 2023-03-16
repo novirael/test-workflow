@@ -1,13 +1,20 @@
 name: "Delete BBD"
 
 on:
-  - delete
-  - pull_request:
-      types: [ closed ]
+  delete:
+    branches:
+      # Ignore tags
+      - "**"
+  pull_request:
+    types: [ closed ]
 
 permissions:
   id-token: write
   contents: read
+
+concurrency:
+  group: delete-bbd-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   delete-deploy:
