@@ -2,7 +2,8 @@ name: "Delete BBD"
 
 on:
   - delete
-  - workflow_dispatch
+  - pull_request:
+      types: [ closed ]
 
 permissions:
   id-token: write
