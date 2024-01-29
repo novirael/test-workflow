@@ -1,0 +1,23 @@
+name: CI master
+
+on:
+  workflow_run:
+    workflows: ["ci-master-fe", "ci-master-be"]
+    branches:
+      - main
+    types:
+      - completed
+
+permissions:
+  id-token: write
+  contents: write
+  pull-requests: write
+
+jobs:
+
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: echo "common"

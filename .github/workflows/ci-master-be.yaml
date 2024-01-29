@@ -1,0 +1,22 @@
+name: CI master FE
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+  actions: read
+
+jobs:
+
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: echo "BE"
