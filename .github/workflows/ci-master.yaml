@@ -2,7 +2,7 @@ name: CI master
 
 on:
   workflow_run:
-    workflows: ["ci-master-fe", "ci-master-be"]
+    workflows: ["CI master FE", "CI master BE"]
     branches:
       - main
     types:
